@@ -8,8 +8,6 @@ WLOX is configured to use Crypto Capital Corporation as the default banking serv
 
 The purpose of this document is to walk you throught the process of a typical setup of the app using a bitcoind server.
 
-**IF YOU INSTALLED WLOX PRIOR TO 14/01/2015, PLEASE READ THE FILE UPDATE_GUIDE_v1.04 BEFORE CONTINUING**
-
 Getting Started
 --------------
 WLOX runs on the traditional PHP/MySQL/Apache setup.
@@ -36,6 +34,22 @@ Requirements
 - **bitcoind** server, running as daemon (see section called *bitcoind configuration* below).
 - **Warm Wallet**: A secure Bitcoin wallet that is not connected to WLOX. WLOX will send a percentage of Bitcoin deposits to this address automatically. This is normally a half-way point between the Hot Wallet (bitcoind) and *cold storage*. See the **Warm Wallet** section below.
 - **Cold Storage**: We recommend using some kind of *cold storage* for your Bitcoin reserves, such as a *hardware wallet* and an actual safe deposit box in a bank or other safe place.
+
+PHP Configuration
+---------------------
+Your php.ini should have the following settings:
+
+**short_open_tag** = On
+
+It should also have the following modules:
+
+- curl
+- gd
+- mcrypt
+- json
+- mysql
+- openssl
+- pcre
 
 Initializing the Database
 -------------------
@@ -253,18 +267,4 @@ The back-end is structure in the following manner:
 
 **Reports**: Under this tab, you will see "Daily Reports" and "Monthly Reports". You can see switch between a line graph and a table view of these values on the top right side of the respective tables.
 
-PHP Configuration
----------------------
-Your php.ini should have the following settings:
 
-**short_open_tag** = On
-
-It should also have the following modules:
-
-- curl
-- gd
-- mcrypt
-- json
-- mysql
-- openssl
-- pcre
